@@ -5,15 +5,15 @@ using UnityEngine;
 public class myFirstScript : MonoBehaviour
 {
 
-    public int carDoors = 4;
+    public int x = 2;
+    public int y = 3;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
-        Debug.Log(4 + 5);
-
-        Debug.Log(carDoors + 3);
+        addTwoNumbers();
         
     }
 
@@ -22,4 +22,13 @@ public class myFirstScript : MonoBehaviour
     {
         
     }
+
+
+    void addTwoNumbers()
+    {
+
+        Debug.Log(x + y);
+
+    }
+
 }
