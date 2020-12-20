@@ -46,7 +46,7 @@ public class Character
         Debug.LogFormat("Character name: {0} - {1} experience", this.name, this.exp);
     }
 
-    private void Reset
+    private void Reset()
     {
 
         this.name = "";
@@ -54,3 +54,41 @@ public class Character
     }
 
 }
+
+
+public class Paladin : Character
+{
+
+    public Paladin (string name) : base(name)
+    {
+        this.name = name;
+
+    }
+
+
+}
+
+public class Archer : Character
+{
+
+    public Archer (string name): base(name)
+    {
+
+        this.name = name;
+
+    }
+
+}
+
+public class Magician : Character
+{
+    public Magician(string name) : base(name)
+    {
+
+        this.name = name;
+
+
+    }
+
+}
+
