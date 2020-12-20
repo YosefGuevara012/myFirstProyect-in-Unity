@@ -45,10 +45,10 @@ public class myFirstScript : MonoBehaviour
         sword.PrintWeaponStats();
         sword2.PrintWeaponStats();
 
-        Paladin Paladin1 = new Paladin("Arhur");
+        Paladin Paladin1 = new Paladin("Arhur", sword);
         Paladin1.PrintCharacterStatus();
 
-        Archer Archer1 = new Archer("Legolas");
+        Archer Archer1 = new Archer("Legolas", new Weapon ("Magic arch", 25));
         Archer1.PrintCharacterStatus();
 
         Magician Magician1 = new Magician("Grandalf");

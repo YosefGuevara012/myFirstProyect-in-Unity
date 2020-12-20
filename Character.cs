@@ -58,10 +58,12 @@ public class Character
 
 public class Paladin : Character
 {
+    public Weapon weapon;
 
-    public Paladin (string name) : base(name)
+    public Paladin (string name, Weapon weapon) : base(name)
     {
         this.name = name;
+        this.weapon = weapon;
 
     }
 
@@ -70,11 +72,13 @@ public class Paladin : Character
 
 public class Archer : Character
 {
+    Weapon arch;
 
-    public Archer (string name): base(name)
+    public Archer (string name, Weapon arch): base(name)
     {
 
         this.name = name;
+        this.arch = arch;
 
     }
 
@@ -82,10 +86,14 @@ public class Archer : Character
 
 public class Magician : Character
 {
+
+    Weapon staff;
+
     public Magician(string name) : base(name)
     {
 
         this.name = name;
+        this.staff = new Weapon("Magic Staff", 50);
 
 
     }
