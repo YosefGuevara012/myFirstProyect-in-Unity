@@ -7,7 +7,9 @@ using UnityEngine;
 
 public class myFirstScript : MonoBehaviour
 {
-
+    public Transform cameraTransfrom;
+    public Light directionalLight;
+    public Transform LightTransorm;
 
 
     void Start()
@@ -71,6 +73,11 @@ public class myFirstScript : MonoBehaviour
         Transform theTransform = GetComponent<Transform>();
         Debug.Log(theTransform.position);
         Debug.Log(theTransform.rotation);
+
+
+        GameObject myLight = GameObject.Find("Directional Light");
+        Transform t = myLight.GetComponent<Transform>();
+        Debug.Log("la lus está en:" + t.position);
 
     }
 
