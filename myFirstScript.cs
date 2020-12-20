@@ -14,8 +14,11 @@ public class myFirstScript : MonoBehaviour
     {
 
         Character hero = new Character();
-        Character archer = new Character();
-        Character soldier = new Character();
+        Debug.LogFormat("Hero name: {0} - {1} experience", hero.name, hero.exp);
+
+        Character heroine = new Character("Lara Croft");
+        Debug.LogFormat("Heroine name: {0} -  {1} experience ", heroine.name, heroine.exp);
+        
 
     }
 
