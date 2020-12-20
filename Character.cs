@@ -46,4 +46,11 @@ public class Character
         Debug.LogFormat("Character name: {0} - {1} experience", this.name, this.exp);
     }
 
+    private void Reset
+    {
+
+        this.name = "";
+        this.exp = 0;
+    }
+
 }
