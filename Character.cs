@@ -20,5 +20,10 @@ public class Character
 
     }
 
+    public void PrintCharacterStatus()
+    {
+
+        Debug.LogFormat("Character name: {0} - {1} experience", this.name, this.exp);
+    }
 
 }
