@@ -64,6 +64,14 @@ public class myFirstScript : MonoBehaviour
             c.PrintCharacterStatus();
         }
 
+
+        // El script de esta camara
+        // Podemos consultar sus componentes
+
+        Transform theTransform = GetComponent<Transform>();
+        Debug.Log(theTransform.position);
+        Debug.Log(theTransform.rotation);
+
     }
 
    
