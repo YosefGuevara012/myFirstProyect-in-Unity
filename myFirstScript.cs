@@ -46,13 +46,23 @@ public class myFirstScript : MonoBehaviour
         sword2.PrintWeaponStats();
 
         Paladin Paladin1 = new Paladin("Arhur", sword);
-        Paladin1.PrintCharacterStatus();
 
         Archer Archer1 = new Archer("Legolas", new Weapon ("Magic arch", 25));
-        Archer1.PrintCharacterStatus();
+
 
         Magician Magician1 = new Magician("Grandalf");
-        Magician1.PrintCharacterStatus();
+
+        List<Character> party = new List<Character>();
+        party.Add(Paladin1);
+        party.Add(Archer1);
+        party.Add(Magician1);
+
+
+        foreach(Character c in party)
+        {
+
+            c.PrintCharacterStatus();
+        }
 
     }
 

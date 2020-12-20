@@ -40,7 +40,7 @@ public class Character
 
     }
 
-    public void PrintCharacterStatus()
+    public virtual void PrintCharacterStatus()
     {
 
         Debug.LogFormat("Character name: {0} - {1} experience", this.name, this.exp);
@@ -67,6 +67,10 @@ public class Paladin : Character
 
     }
 
+    public override void PrintCharacterStatus()
+    {
+        Debug.LogFormat("I'm a Paladin my name is {0} and I have a {1}", this.name, this.weapon);
+    }
 
 }
 
@@ -82,6 +86,11 @@ public class Archer : Character
 
     }
 
+    public override void PrintCharacterStatus()
+    {
+        base.PrintCharacterStatus();
+        Debug.LogFormat("Mi arma es {0}", this.arch.name);
+    }
 }
 
 public class Magician : Character
