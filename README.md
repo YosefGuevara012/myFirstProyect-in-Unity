@@ -6,8 +6,8 @@ This repository contains the implementation of the unity course in C # dictated 
 
 ## Enviroment
 
-Unity 2019.4.14f1
-C#
+- Unity 2019.4.14f1
+- C#
 
 ## What I'm learning
 
