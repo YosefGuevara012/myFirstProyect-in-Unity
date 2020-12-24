@@ -1,4 +1,4 @@
-# My firts Proyect in unity
+# My first Proyect in unity
 
 ## Description
 
