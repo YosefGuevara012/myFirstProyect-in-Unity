@@ -19,8 +19,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
-        
-        
+        moveSpeed = 5;
+        rotateSpeed = 15;
+
     }
 
     // Update is called once per frame
