@@ -39,7 +39,20 @@ public class PlayerController : MonoBehaviour
         //this.transform.Translate(Vector3.forward * vInput * Time.deltaTime);
         //this.transform.Rotate(Vector3.up * hInput * Time.deltaTime);
 
-
-
     }
+
+    private void FixedUpdate()
+    {
+        Vector3 rotation = Vector3.up * hInput;
+        Quaternion angleRot = Quaternion.Euler(rotation * Time.fixedDeltaTime);
+
+        // so = S0 + v*t
+
+        _rb.MovePosition(this.transform.position +
+                         this.transform.forward * vInput * Time.fixedDeltaTime);
+        _rb.MoveRotation(_rb.rotation * angleRot);
+
+    
+    }
+
 }
