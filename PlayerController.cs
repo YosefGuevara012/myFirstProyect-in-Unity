@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float rotateSpeed = 60f;
+    public float currentMoveSpeed;
+    public float currentRotateSpeed;
 
     private float hInput, vInput;
 
@@ -21,8 +23,8 @@ public class PlayerController : MonoBehaviour
     {
 
         _rb = GetComponent<Rigidbody>();
-        moveSpeed = 5;
-        rotateSpeed = 15;
+        currentMoveSpeed = moveSpeed;
+        currentRotateSpeed = rotateSpeed;
 
     }
 
@@ -30,9 +32,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetAxis("Fire1") > 0.5)
+        {
+            currentMoveSpeed = moveSpeed / 2.0f;
+            currentRotateSpeed = rotateSpeed / 2.0f;
+
+        }
+        else
+        {
+
+            currentMoveSpeed = moveSpeed;
+            currentRotateSpeed = rotateSpeed;
+
+        }
+       
+
         // How much is going to move (Hardware Speed)
-        hInput = Input.GetAxis("Horizontal") * rotateSpeed;
-        vInput = Input.GetAxis("Vertical") * moveSpeed;
+        hInput = Input.GetAxis("Horizontal") * currentRotateSpeed;
+        vInput = Input.GetAxis("Vertical") * currentMoveSpeed;
 
         // Movement Vector (Phisical Speed)
         // Forma de mover al jugador sin usar el motor fisicas
