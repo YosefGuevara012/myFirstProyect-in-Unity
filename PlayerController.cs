@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
         _rb.MovePosition(this.transform.position +
                          this.transform.forward * vInput * Time.fixedDeltaTime);
-        _rb.MoveRotation(_rb.rotation * angleRot);
+        _rb.MoveRotation(_rb.rotation * angleRot); 
 
     
     }
