@@ -13,5 +13,5 @@ This repository contains the implementation of the unity course in C # dictated 
 
 - Programming in C #
 - Unity video game engine
-- Basic development of video games
+- Basic video game development
 - Animation.
