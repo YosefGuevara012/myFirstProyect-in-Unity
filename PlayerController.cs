@@ -26,6 +26,12 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     private CapsuleCollider _col;
 
+    // Bullet Variables
+
+    public GameObject bullet;
+    public Transform shootPoint;
+    public float bulletSpeed = 100f;
+
     // Methods
 
     // Start is called before the first frame update
@@ -57,7 +63,7 @@ public class PlayerController : MonoBehaviour
             currentRotateSpeed = rotateSpeed;
 
         }
-       
+
 
         // How much is going to move (Hardware Speed)
         hInput = Input.GetAxis("Horizontal") * currentRotateSpeed;
@@ -67,6 +73,22 @@ public class PlayerController : MonoBehaviour
         // Forma de mover al jugador sin usar el motor fisicas
         //this.transform.Translate(Vector3.forward * vInput * Time.deltaTime);
         //this.transform.Rotate(Vector3.up * hInput * Time.deltaTime);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            // is time that the player shoots is going to create a new bullet
+            // as a game object ( casting explicit) 
+
+            GameObject newBullet = Instantiate(bullet,
+                                               shootPoint.position,
+                                               shootPoint.rotation) as GameObject;
+
+            Rigidbody bulletRB = newBullet.GetComponent<Rigidbody>();
+
+            bulletRB.velocity = shootPoint.forward * bulletSpeed;
+
+
+        }
 
         if (IsOnTheGround() && Input.GetKeyDown(KeyCode.Space))
         {
