@@ -5,15 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+
     // Variables
 
     public float moveSpeed = 5f;
-    public float rotateSpeed = 60f;
+    public float rotateSpeed = 5f;
+    public float jumpSpeed = 5f;
+
     public float currentMoveSpeed;
     public float currentRotateSpeed;
 
     private float hInput, vInput;
-
+    
+    // Usually _ is used to name a private component of an object
     private Rigidbody _rb;
 
     // Methods
@@ -55,6 +59,11 @@ public class PlayerController : MonoBehaviour
         // Forma de mover al jugador sin usar el motor fisicas
         //this.transform.Translate(Vector3.forward * vInput * Time.deltaTime);
         //this.transform.Rotate(Vector3.up * hInput * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+        }
 
     }
 
