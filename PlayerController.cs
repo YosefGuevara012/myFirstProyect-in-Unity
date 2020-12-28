@@ -20,6 +20,12 @@ public class PlayerController : MonoBehaviour
     // Usually _ is used to name a private component of an object
     private Rigidbody _rb;
 
+    // JumpVariables
+
+    public float distanceToGround = 0.1f;
+    public LayerMask groundLayer;
+    private CapsuleCollider _col;
+
     // Methods
 
     // Start is called before the first frame update
@@ -29,6 +35,8 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         currentMoveSpeed = moveSpeed;
         currentRotateSpeed = rotateSpeed;
+
+        _col = GetComponent<CapsuleCollider>();
 
     }
 
@@ -60,7 +68,7 @@ public class PlayerController : MonoBehaviour
         //this.transform.Translate(Vector3.forward * vInput * Time.deltaTime);
         //this.transform.Rotate(Vector3.up * hInput * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsOnTheGround() && Input.GetKeyDown(KeyCode.Space))
         {
             _rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
         }
@@ -79,6 +87,24 @@ public class PlayerController : MonoBehaviour
         _rb.MoveRotation(_rb.rotation * angleRot); 
 
     
+    }
+
+    bool IsOnTheGround()
+    {
+
+        Vector3 capsuleBottom = new Vector3(_col.bounds.center.x,
+                                            _col.bounds.min.y,
+                                            _col.bounds.center.z);
+
+        bool onTheGround = Physics.CheckCapsule(_col.bounds.center,
+                                                capsuleBottom,
+                                                distanceToGround,
+                                                groundLayer,
+                                                QueryTriggerInteraction.Ignore);
+        return onTheGround;
+
+
+
     }
 
 }
