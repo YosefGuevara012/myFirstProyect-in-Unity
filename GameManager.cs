@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
     public string labelText = "Recolecta los 4 items y gánate la libertad!";
     public int maxItems = 4;
+
+    public bool showWinScreen = false;
 
   
     // added some logic to get or set the variables to our data
@@ -22,14 +25,16 @@ public class GameManager : MonoBehaviour
         }
         set
         {
-            
-            if(_itemsCollected >= maxItems)
+            _itemsCollected = value;
+            if (_itemsCollected >= maxItems)
             {
                 labelText = "Has encontrado todos los Items";
+                showWinScreen = true;
+                Time.timeScale = 0;
             }
             else
             {
-                _itemsCollected = value;
+                
                 labelText = "Item encontrado, te faltan: " + (maxItems - _itemsCollected);
             }
 
@@ -73,10 +78,20 @@ public class GameManager : MonoBehaviour
                           /*Anchi*/180,
                           /*alto*/25), "Vida: " + _playerHP);
 
-        GUI.Box(new Rect(25, 60, 180, 25), "Items recogidos: " + _itemsCollected);
+        GUI.Box(new Rect(25, 65, 180, 25), "Items recogidos: " + _itemsCollected);
 
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 200, 50),
             labelText);
+
+        if (showWinScreen)
+        {
+            if (GUI.Button(new Rect(Screen.width / 2 - 200, Screen.height - 50, 400, 50),
+                "¡¡ HAS GANADO !!"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Time.timeScale = 1;
+            }
+        }
     
     }
 }
