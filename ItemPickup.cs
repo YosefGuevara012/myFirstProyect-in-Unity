@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+
+    public GameManager gameManager;
+
+    public void Start()
+    {
+        gameManager = GameObject.Find("Game Manager").
+            GetComponent<GameManager>(); 
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         
@@ -12,7 +21,7 @@ public class ItemPickup : MonoBehaviour
             // Player pickup the healthItem
             Destroy(this.transform.parent.gameObject);
             Debug.Log("Objeto recolectado");
-
+            gameManager.Items++;
 
         }
 
