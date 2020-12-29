@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     // Variables
 
     public float moveSpeed = 5f;
-    public float rotateSpeed = 5f;
+    public float rotateSpeed = 10f;
     public float jumpSpeed = 5f;
 
     public float currentMoveSpeed;
