@@ -19,6 +19,27 @@ public class EnemyBehaviour : MonoBehaviour
 
     private NavMeshAgent _agent;
 
+    private int _lives = 3;
+    public int EnemyLives
+    {
+        get
+        {
+            return _lives;
+        }
+        private set
+        {
+
+            _lives = value;
+
+            if(_lives <= 0)
+            {
+                Destroy(this.gameObject);
+                Debug.Log("Ohh, me han matadooooo");
+
+            }
+        }
+    }
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -68,7 +89,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.name == "Player")
         {
@@ -85,6 +106,17 @@ public class EnemyBehaviour : MonoBehaviour
 
             Debug.Log("Jugador fuera de rango, regreso a patullar");
 
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if(collision.gameObject.tag == "Bullet")
+        {
+            EnemyLives--;
+            Debug.Log("Daño recibido");
         }
 
     }
