@@ -8,6 +8,8 @@ using UnityEngine.AI;
 public class EnemyBehaviour : MonoBehaviour
 {
     public Transform patrolRoute;
+
+    public Transform player;
     
     [HideInInspector] // Modifier to hide a public var
     public List<Transform> waypoints;
@@ -20,6 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        player = GameObject.Find("Player").transform; 
         InitializeWaypoints();
         MoveToNextWaypoint();
     }
@@ -70,6 +73,7 @@ public class EnemyBehaviour : MonoBehaviour
         if(other.name == "Player")
         {
             Debug.Log("Jugador detectado - Voy a por ti!!!");
+            _agent.SetDestination(player.position);
         }
     }
 

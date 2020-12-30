@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int _playerHP = 0;
-    private int HP
+    private int _playerHP = 3;
+    public int HP
     {
         get
         {

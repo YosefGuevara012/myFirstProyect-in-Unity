@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     public Transform shootPoint;
     public float bulletSpeed = 100f;
 
+    // Enemy damage
+    private GameManager gameManager;
+
     // Methods
 
     // Start is called before the first frame update
@@ -43,6 +46,8 @@ public class PlayerController : MonoBehaviour
         currentRotateSpeed = rotateSpeed;
 
         _col = GetComponent<CapsuleCollider>();
+
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
     }
 
@@ -127,6 +132,14 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            gameManager.HP--;
+        }
     }
 
 }
