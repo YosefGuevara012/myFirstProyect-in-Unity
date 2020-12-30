@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    public Transform patrolRoute;
+    public List<Transform> waypoints;
+
+    private void Start()
+    {
+        InitializeWaypoints();
+    }
+
+    void InitializeWaypoints()
+    {
+        foreach(Transform wp in patrolRoute)
+        {
+            waypoints.Add(wp);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
