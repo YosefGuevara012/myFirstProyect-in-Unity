@@ -45,8 +45,12 @@ public class mySecondScript : MonoBehaviour
     // Delegados
     // public delegate returnType NameOfTheDelegate(int param1, string param2..);
 
+    // Event
+    // public event  EventDElegate eventInstance;
+    // public delegate void EventDelegate ( int param1, string param2, ...);
 
-
-
+    // someClass.eventInstace += Eventhadler;
+    // someClass.eventInstace += Eventhadler( int param1, string param2, ...);
+    // someClass.eventInstace -= Eventhadler;
 
 }

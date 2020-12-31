@@ -59,6 +59,17 @@ public class GameManager : MonoBehaviour, IManager
     private void Start()
     {
         Initialize();
+
+        GameObject player = GameObject.Find("Player");
+        PlayerController playerController =
+            player.GetComponent<PlayerController>();
+        playerController.playerJump += PlayerJumpHandler;
+    }
+
+
+    public void PlayerJumpHandler()
+    {
+        Debug.Log("El jugador ha saltado");
     }
 
     public int Items

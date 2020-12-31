@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    // Delegados y eventos
+    public delegate void JumpEvent();
+    public event JumpEvent playerJump;
 
     // Variables
 
@@ -98,6 +101,7 @@ public class PlayerController : MonoBehaviour
         if (IsOnTheGround() && Input.GetKeyDown(KeyCode.Space))
         {
             _rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            playerJump();
         }
 
     }
