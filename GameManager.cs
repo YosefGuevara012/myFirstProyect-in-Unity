@@ -167,7 +167,24 @@ public class GameManager : MonoBehaviour, IManager
             if (GUI.Button(new Rect(Screen.width / 2 - 200, Screen.height - 50, 400, 50),
                 message))
             {
-                Utilities.RestartLevel();
+                try
+                {
+                    // Codigo a ejecutar si no da error
+                    Utilities.RestartLevel(-7);
+                    debug("He podido reiniciar la escena");
+                }
+                catch(System.ArgumentException exc)
+                {
+                    // alertnativa a ejecutar si no ha habido un error
+                    Utilities.RestartLevel();
+                    debug("Reiniciando escena numero 0 debido error:" + exc.ToString());
+                }
+                finally
+                {
+                    // codigo que se ejecuta tanto si se ejecuta como si no
+                    debug("De cualquier modo, hemos podido reinicar la escena");
+                }
+                
             }
         }
         

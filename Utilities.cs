@@ -30,6 +30,17 @@ public static class Utilities
     ///</summary>
     public static void RestartLevel(int buildIndex)
     {
+
+        if(buildIndex < 0)
+        {
+            throw new System.ArgumentException("El indice no pude ser negativo");
+        }
+
+        if(buildIndex > SceneManager.sceneCount)
+        {
+            throw new System.ArgumentException("El numero el mayor a la cantitdad de escenas existentes");
+        }
+
         SceneManager.LoadScene(buildIndex);
         Time.timeScale = 1.0f;
     }
