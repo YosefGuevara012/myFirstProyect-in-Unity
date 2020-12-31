@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using CustomExtensions;
 
 public class GameManager : MonoBehaviour, IManager
 {
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour, IManager
     public void Initialize()
     {
         _state = "Mange inicializado";
-        Debug.Log(_state);
+        _state.YosefDebug();
 
     }
 
