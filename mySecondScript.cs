@@ -36,4 +36,6 @@ public class mySecondScript : MonoBehaviour
         AttackEnemy(5.0f);
     }
 
+
+
 }

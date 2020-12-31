@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IManager
 {
 
     public string labelText = "Recolecta los 4 items y gánate la libertad!";
@@ -16,6 +16,32 @@ public class GameManager : MonoBehaviour
     // added some logic to get or set the variables to our data
 
     private int _itemsCollected = 0;
+
+    private string _state;
+
+    public string State
+    {
+        get {
+            return _state;
+        }
+        set
+        {
+            _state = value;
+        }
+    }
+
+    public void Initialize()
+    {
+        _state = "Mange inicializado";
+        Debug.Log(_state);
+
+    }
+
+    private void Start()
+    {
+        Initialize();
+    }
+
     public int Items
     {
         get

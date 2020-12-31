@@ -34,7 +34,6 @@ public static class Utilities
         Time.timeScale = 1.0f;
     }
 
-
     public static string UpdateDeathCount(ref int countRef)
     {
 
