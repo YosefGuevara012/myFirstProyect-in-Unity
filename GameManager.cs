@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public string labelText = "Recolecta los 4 items y gánate la libertad!";
-    public int maxItems = 4;
+    public const int MAX_ITEMS = 4;
 
     public bool showWinScreen = false;
     public bool showLossScreen = false;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _itemsCollected = value;
-            if (_itemsCollected >= maxItems)
+            if (_itemsCollected >= MAX_ITEMS)
             {
                 labelText = "Has encontrado todos los Items";
                 showWinScreen = true;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 
-                labelText = "Item encontrado, te faltan: " + (maxItems - _itemsCollected);
+                labelText = "Item encontrado, te faltan: " + (MAX_ITEMS - _itemsCollected);
             }
 
             if(value >= 0)
