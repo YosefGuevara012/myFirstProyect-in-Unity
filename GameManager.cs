@@ -4,6 +4,9 @@ using UnityEngine;
 
 using CustomExtensions;
 
+// type alias
+using yint = System.Int64;
+
 public class GameManager : MonoBehaviour, IManager
 {
 
@@ -77,8 +80,8 @@ public class GameManager : MonoBehaviour, IManager
         }
     }
 
-    private int _playerHP = 3;
-    public int HP
+    private yint _playerHP = 3;
+    public yint HP
     {
         get
         {
