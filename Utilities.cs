@@ -19,6 +19,10 @@ public static class Utilities
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
 
+        Debug.Log("Muertes del jugador:" + playerDeaths);
+        string message = UpdateDeathCount(ref playerDeaths);
+        Debug.Log("Muertes totales: " + playerDeaths);
+
     }
 
     ///<summary>
@@ -28,5 +32,13 @@ public static class Utilities
     {
         SceneManager.LoadScene(buildIndex);
         Time.timeScale = 1.0f;
+    }
+
+
+    public static string UpdateDeathCount(ref int countRef)
+    {
+
+        countRef++;
+        return "Has jugado ya" + countRef + "veces";
     }
 }
