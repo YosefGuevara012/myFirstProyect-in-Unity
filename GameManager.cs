@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -111,8 +111,7 @@ public class GameManager : MonoBehaviour
             if (GUI.Button(new Rect(Screen.width / 2 - 200, Screen.height - 50, 400, 50),
                 message))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                Time.timeScale = 1;
+                Utilities.RestartLevel();
             }
         }
         
