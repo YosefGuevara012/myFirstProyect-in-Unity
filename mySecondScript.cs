@@ -34,6 +34,11 @@ public class mySecondScript : MonoBehaviour
         AttackEnemy();
         AttackEnemy(true);
         AttackEnemy(5.0f);
+
+        Inventory<Weapon> i = new Inventory<Weapon>();
+        i.SetItem(new Weapon("Espada antigua",20));
+        Inventory<int> intI = new Inventory<int>();
+        intI.SetItem(42);
     }
 
 
