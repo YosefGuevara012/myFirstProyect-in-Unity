@@ -20,14 +20,20 @@ public class mySecondScript : MonoBehaviour
         numberOfEnemies = 5;
     }
 
-    void Start()
+    // Method Overload
+    // Diferent ways to do the same action
+    public bool AttackEnemy(int damage) { return true; }
+    public bool AttackEnemy(string player) { return true; }
+    public bool AttackEnemy(float damage) { return true; }
+    public bool AttackEnemy(float damage, string player) { return true; }
+    public void AttackEnemy(){}
+    public float AttackEnemy(bool hello) { return 5.0f; }
+
+    private void Start()
     {
-        
+        AttackEnemy();
+        AttackEnemy(true);
+        AttackEnemy(5.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -8,7 +8,11 @@ public static class Utilities
 {
 
     public static int playerDeaths = 0;
-    
+
+    ///<summary>
+    /// Restarts the same level
+    ///</summary>
+
     public static void RestartLevel()
     {
 
@@ -17,5 +21,12 @@ public static class Utilities
 
     }
 
-
+    ///<summary>
+    /// Restarts an specific level
+    ///</summary>
+    public static void RestartLevel(int buildIndex)
+    {
+        SceneManager.LoadScene(buildIndex);
+        Time.timeScale = 1.0f;
+    }
 }
