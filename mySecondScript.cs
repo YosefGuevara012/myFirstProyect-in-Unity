@@ -42,5 +42,11 @@ public class mySecondScript : MonoBehaviour
     }
 
 
+    // Delegados
+    // public delegate returnType NameOfTheDelegate(int param1, string param2..);
+
+
+
+
 
 }

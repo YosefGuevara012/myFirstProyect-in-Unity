@@ -10,6 +10,19 @@ using yint = System.Int64;
 public class GameManager : MonoBehaviour, IManager
 {
 
+    public delegate void DebugFormDelegate(string text);
+    public DebugFormDelegate debug = Print;
+    public static void Print (string text)
+    {
+        Debug.Log(text);
+    }
+
+
+    public void LogWithMyDelegate(DebugFormDelegate del)
+    {
+        del("Estoy en un metodo");
+    }
+
     public string labelText = "Recolecta los 4 items y gánate la libertad!";
     public const int MAX_ITEMS = 4;
 
@@ -39,6 +52,8 @@ public class GameManager : MonoBehaviour, IManager
         _state = "Mange inicializado";
         _state.YosefDebug();
 
+        debug("Hola");
+        LogWithMyDelegate(debug);
     }
 
     private void Start()
