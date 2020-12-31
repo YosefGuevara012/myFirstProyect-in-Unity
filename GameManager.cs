@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public int maxItems = 4;
 
     public bool showWinScreen = false;
+    public bool showLossScreen = false;
 
-  
+
     // added some logic to get or set the variables to our data
 
     private int _itemsCollected = 0;
@@ -65,6 +66,17 @@ public class GameManager : MonoBehaviour
                _playerHP = value;
 
             }
+
+            if(_playerHP <= 0)
+            {
+                labelText = "Has muerto.... Prueba otra vez";
+                showLossScreen = true;
+                Time.timeScale = 0;
+            }
+            else
+            {
+                labelText = "Ouch, me han dado....";
+            }
            
             Debug.LogFormat("Vidas: {0}", _playerHP);
         }
@@ -85,13 +97,25 @@ public class GameManager : MonoBehaviour
 
         if (showWinScreen)
         {
+            ShowEndLevel("¡¡ HAS GANADO !!");
+        }
+
+        if (showLossScreen)
+        {
+            ShowEndLevel("¡¡ GAME OVER !!");
+        }
+
+        void ShowEndLevel(string message)
+        {
+
             if (GUI.Button(new Rect(Screen.width / 2 - 200, Screen.height - 50, 400, 50),
-                "¡¡ HAS GANADO !!"))
+                message))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 Time.timeScale = 1;
             }
         }
-    
+        
+
     }
 }
